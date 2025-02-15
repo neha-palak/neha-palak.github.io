@@ -3,86 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neha Palak - Personal Website</title>
+    <title>Neha Palak</title>
     <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 50px 0;
-            background-color: #4CAF50;
+            font-family: 'Arial', sans-serif;
+            background-color: #111; /* Dark background */
             color: white;
-        }
-        header h1 {
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             margin: 0;
-            font-size: 2.5em;
         }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Makes the image circular */
-            margin-top: 20px;
+
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: lighter;
+            margin-bottom: 20px;
         }
-        .content h2 {
-            font-size: 1.8em;
-            color: #333;
-        }
-        .content p {
-            font-size: 1.1em;
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.6;
         }
-        .links a {
-            color: #4CAF50;
+
+        .social-links a {
+            color: #ff4081; /* Pinkish color for links */
             text-decoration: none;
-            font-weight: bold;
+            margin: 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
         }
-        .links a:hover {
-            text-decoration: underline;
+
+        .social-links a:hover {
+            color: #ffffff;
         }
+
         footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #ff4081;
+        }
+
+        .container {
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background-color: #4CAF50;
+        }
+
+        .resume-button {
+            background-color: #ff4081;
             color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .resume-button:hover {
+            background-color: #e63675;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Neha Palak</h1>
-        <p>Welcome to my personal website</p>
-    </header>
+    <div class="container">
+        <!-- Profile Image -->
+        <img src="your-photo.jpg" alt="Your Name" class="profile-img">
 
-    <div class="content">
-        <h2>About Me</h2>
-        <p>Hello! My name is <strong>Neha Palak</strong>. I am currently studying at <strong>Ashoka University</strong> and pursuing my major in <strong>Computer Science</strong> and major in Economics.</p>
-        <div style="text-align: center;">
-            <!-- Profile Image -->
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fhi-official&psig=AOvVaw3tvbtu8SGRLcOfFsSUvn4i&ust=1739666882601000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjFl6a6xIsDFQAAAAAdAAAAABAE" alt="Photo" class="profile-img">
+        <!-- Name -->
+        <h1>Neha Palak</h1>
+
+        <!-- Subtitle -->
+        <h2>Sophomore at Ashoka University</h2>
+
+        <!-- Short Introduction -->
+        <p>Hello! I'm Neha, a passionate developer who loves creating cool stuff. I specialize in web development and enjoy working with modern technologies. Welcome to my personal website!</p>
+
+        <!-- Links (LinkedIn, GitHub, etc.) -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/neha-palak" target="_blank">LinkedIn</a>
+            <a href="https://github.com/neha-palak" target="_blank">GitHub</a>
+            <a href="https://twitter.com/iwantfrappe" target="_blank">Twitter</a>
         </div>
-        <h2>Contact</h2>
-        <p>You can connect with me through the following links:</p>
-        <div class="links">
-            <p><a href="www.linkedin.com/in/neha-palak" target="_blank">LinkedIn Profile</a></p>
-            <p><a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:c6cad465-e055-4353-9bf8-7a063a3923b5" target="_blank">View My Resume</a></p>
-        </div>
+
+        <!-- Resume Button -->
+        <a href="https://acrobat.adobe.com/id/urn:aaid:sc:ap:c6cad465-e055-4353-9bf8-7a063a3923b5" class="resume-button" target="_blank">Download Resume</a>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Neha</p>
+        <p>&copy; 2025 Neha Palak. All Rights Reserved.</p>
     </footer>
 
 </body>
