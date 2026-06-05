@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neha | CS @ Ashoka University</title>
+  <meta name="description" content="I'm Neha, a student developer at Ashoka University interested in ML, data, and building things that matter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e1117;
+      --bg2: #161b25;
+      --bg3: #1e2433;
+      --text: #e8eaf0;
+      --muted: #8892a4;
+      --faint: #3d4558;
+      --accent: #4d9de0;
+      --accent-hover: #6cb3f0;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14,17,23,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .nav-inner a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-inner a:hover,
+    .nav-inner a.active { color: var(--text); }
+    .nav-inner a.active { font-weight: 500; }
+
+    /* ── HERO ── */
+    #home {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      border: 1px solid var(--faint);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 22px;
+      letter-spacing: 0.02em;
+    }
+    .hero-title {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-title .accent { color: var(--accent); }
+    .hero-bio {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 11px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-fill {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-fill:hover { background: var(--accent-hover); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--faint);
+    }
+    .btn-outline:hover { border-color: var(--muted); background: var(--bg3); }
+
+    /* photo */
+    .hero-photo-wrap {
+      position: relative;
+      width: 240px;
+      flex-shrink: 0;
+    }
+    .hero-photo-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(ellipse at center, rgba(77,157,224,0.15) 0%, transparent 70%);
+      border-radius: 20px;
+      pointer-events: none;
+    }
+    .hero-photo {
+      width: 240px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      display: block;
+    }
+    .hero-photo-placeholder {
+      width: 240px;
+      height: 300px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .hero-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .social-btn:hover { color: var(--text); border-color: var(--faint); }
+    .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 900px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── SECTION ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .section-title {
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .section-title .accent { color: var(--accent); }
+    .section-sub {
+      margin-top: 12px;
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      border-color: rgba(77,157,224,0.35);
+      transform: translateY(-2px);
+    }
+    .project-thumb {
+      width: 100%;
+      height: 160px;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-thumb-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(77,157,224,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-thumb-icon svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .project-body { padding: 20px; }
+    .project-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--bg3);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+    .project-links { display: flex; gap: 10px; margin-top: 14px; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent-hover); }
+    .project-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: flex;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    .exp-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 6px;
+    }
+    .exp-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .exp-line {
+      width: 1px;
+      flex: 1;
+      background: var(--border);
+      margin-top: 6px;
+    }
+    .exp-content { flex: 1; }
+    .exp-role {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .exp-org {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .exp-period {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+    }
+    .exp-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── BLOG ── */
+    .blog-list { display: flex; flex-direction: column; gap: 0; }
+    .blog-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .blog-item:first-child { border-top: 1px solid var(--border); }
+    .blog-left { flex: 1; }
+    .blog-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+      transition: color 0.15s;
+    }
+    .blog-item:hover .blog-title { color: var(--accent); }
+    .blog-excerpt {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+    .blog-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .blog-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .blog-tag.tag-ml    { color: #7cc4f0; border-color: rgba(124,196,240,0.3); background: rgba(124,196,240,0.08); }
+    .blog-tag.tag-life  { color: #a8d8a8; border-color: rgba(168,216,168,0.3); background: rgba(168,216,168,0.08); }
+    .blog-tag.tag-uni   { color: #f4b8c1; border-color: rgba(244,184,193,0.3); background: rgba(244,184,193,0.08); }
+    .blog-tag.tag-dev   { color: #f5d788; border-color: rgba(245,215,136,0.3); background: rgba(245,215,136,0.08); }
+    .blog-date { font-size: 12px; color: var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+      text-align: center;
+    }
+    .contact-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .contact-title .accent { color: var(--accent); }
+    .contact-sub {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      #home {
+        grid-template-columns: 1fr;
+        padding: 56px 20px 72px;
+        gap: 40px;
+      }
+      .hero-photo-wrap { width: 100%; }
+      .hero-photo, .hero-photo-placeholder {
+        width: 100%;
+        height: 260px;
+      }
+      .section { padding: 56px 20px; }
+      .nav-inner { gap: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="active">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-text">
+      <span class="hero-tag">Student Developer</span>
+      <h1 class="hero-title">Hi, I'm <span class="accent">Neha</span></h1>
+      <p class="hero-bio">
+        Building things at the intersection of ML and data. Studying CS at Ashoka University — curious about multimodal systems, messy real-world datasets, and what happens when research meets product.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-fill">
+          View my projects
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#blog" class="btn btn-outline">Read my blog</a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-glow"></div>
+      <!-- Replace src with your actual photo path, e.g. src="img/profile.jpg" -->
+      <div class="hero-photo-placeholder">Your photo here</div>
+      <div class="hero-socials">
+        <!-- GitHub -->
+        <a href="https://github.com/" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <!-- Resume -->
+        <a href="resume.pdf" target="_blank" class="social-btn" aria-label="Resume">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Proj<span class="accent">ec</span>ts</h2>
+      <p class="section-sub">Things I've built, broken, and rebuilt.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-thumb">
+          <div class="project-thumb-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-name">Census Data Pipeline</p>
+          <p class="project-desc">End-to-end data pipeline for Indian Census datasets — cleaning, transforming, and visualising demographic patterns at scale.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Data Engineering</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">
+          <div class="project-thumb-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-name">Multimodal Classifier</p>
+          <p class="project-desc">Image-text fusion model built on transformer architecture. Trained for cross-modal retrieval tasks using late-fusion strategy.</p>
+          <div class="tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">NLP</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb">
+          <div class="project-thumb-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-name">Your next project</p>
+          <p class="project-desc">Add a short description of another project you've worked on. What problem did it solve?</p>
+          <div class="tags">
+            <span class="tag">Add stack</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Experi<span class="accent">en</span>ce</h2>
+      <p class="section-sub">Where I've spent my time.</p>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-dot-col">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+        </div>
+        <div class="exp-content">
+          <p class="exp-role">Intern / Role Title</p>
+          <p class="exp-org">Company Name</p>
+          <p class="exp-period">Month Year – Month Year · Location</p>
+          <p class="exp-desc">What you did, what you built, what you learned. Keep it to 2–3 lines — concrete impact over vague responsibilities.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot-col">
+          <div class="exp-dot"></div>
+          <div class="exp-line"></div>
+        </div>
+        <div class="exp-content">
+          <p class="exp-role">Research Assistant</p>
+          <p class="exp-org">Ashoka University · CS Department</p>
+          <p class="exp-period">Semester Year · Sonipat</p>
+          <p class="exp-desc">Add what you worked on — which professor, which domain, what your contribution was.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot-col">
+          <div class="exp-dot"></div>
+        </div>
+        <div class="exp-content">
+          <p class="exp-role">Club / TA / Leadership Role</p>
+          <p class="exp-org">Organisation</p>
+          <p class="exp-period">Duration</p>
+          <p class="exp-desc">Add a sentence about what you did in this role.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- BLOG -->
+  <section id="blog" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Bl<span class="accent">og</span>s</h2>
+      <p class="section-sub">Writing about things I'm learning and thinking about.</p>
+    </div>
+
+    <div class="blog-list">
+
+      <a href="#" class="blog-item">
+        <div class="blog-left">
+          <p class="blog-title">What I learned building a data pipeline from scratch</p>
+          <p class="blog-excerpt">On messy Census data, unexpected edge cases, and why cleaning is 80% of the work.</p>
+        </div>
+        <div class="blog-right">
+          <span class="blog-tag tag-dev">developer</span>
+          <span class="blog-date">Jun 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-item">
+        <div class="blog-left">
+          <p class="blog-title">Notes on transformer attention mechanisms</p>
+          <p class="blog-excerpt">A student's attempt at actually understanding what's happening inside self-attention.</p>
+        </div>
+        <div class="blog-right">
+          <span class="blog-tag tag-ml">ml</span>
+          <span class="blog-date">Mar 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-item">
+        <div class="blog-left">
+          <p class="blog-title">First internship done — what I'd tell myself before starting</p>
+          <p class="blog-excerpt">Things that surprised me, things I wish I knew, and what made it worthwhile.</p>
+        </div>
+        <div class="blog-right">
+          <span class="blog-tag tag-life">life</span>
+          <span class="blog-date">Add date</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="contact-title">Get in <span class="accent">touch</span></h2>
+    <p class="contact-sub">
+      Open to internships, collaborations, and interesting conversations. The best way to reach me is over email — I try to reply to everything.
+    </p>
+    <div class="contact-actions">
+      <a href="mailto:your@email.com" class="btn btn-fill">Say hello →</a>
+      <a href="https://linkedin.com/" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2025 Neha</p>
+    </div>
+  </footer>
+
+  <script>
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
