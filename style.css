@@ -142,21 +142,24 @@ margin:70px auto;
 }
 
 .tile {
-  color: #f9c4d2;
+  display: flex;
+  align-items: center;      
+  justify-content: center;  
 
-  background: rgba(122, 42, 58, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  color: #f9c4d2;
+  background: rgba(122, 42, 58, 0.5);
 
   padding: 30px;
   border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
 
   transition: transform .3s, background .3s;
 }
 
 .tile:hover {
   transform: translateY(-10px);
-  background: rgba(140, 55, 75, 0.8);
+  background: rgba(140, 55, 75, 0.7);
 }
 
 .page{
@@ -233,6 +236,8 @@ gap:12px;
 .tags span{
 
 background:#f9c4d2;
+
+color:#7a2a3a;
 
 padding:12px 18px;
 
