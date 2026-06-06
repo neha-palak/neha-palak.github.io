@@ -201,7 +201,7 @@ color:#ff4081;
 }
 
 .back:hover {
-  background: #f5a8bf;
+  background: rgba(122, 42, 58, 0.2);
   transform: translateY(-2px);
 }
 
