@@ -15,7 +15,7 @@ min-height:100vh;
 padding:40px;
 }
 
-a {
+.a-links {
   display: inline-block;
   background: #f9c4d2;
   color: #7a2a3a;
@@ -26,7 +26,7 @@ a {
   transition: background .2s, transform .2s;
 }
 
-a:hover {
+.a-links:hover {
   background: #f5a8bf;
   transform: translateY(-2px);
 }
