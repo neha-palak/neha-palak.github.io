@@ -61,6 +61,16 @@ color:#bbb;
 line-height:1.8;
 }
 
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* space between button and heading */
+}
+
+.title-row h1 {
+  margin: 0;
+}
+
 .buttons {
   margin: 30px;
   display: flex;
