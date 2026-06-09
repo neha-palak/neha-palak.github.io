@@ -1,5 +1,205 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Neha Palak</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+
+<button class="menu-btn">
+
+<img
+src="menu-icon.png"
+alt="menu">
+
+</button>
+
+
+<div class="menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="sub_files/projects.html">
+Projects
+</a>
+
+<a href="sub_files/about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+
+
+<div class="homepage">
+
+
+
+<section class="tiles">
+
+
+<div
+class="tile large"
+onclick="go('sub_files/projects.html')">
+
+<h2>Projects</h2>
+
+<p>
+projects + skills
+</p>
+
+</div>
+
+
+
+<div
+class="tile"
+onclick="go('sub_files/random.html')">
+
+<h2>Offbeat</h2>
+
+<p>
+
+things i love • fun stuff • experiences • what i’m looking forward to
+
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+<section class="hero">
+
+
+<img
+src="photo.jpeg"
+class="profile">
+
+
+<h1>
+
+Neha Palak
+
+</h1>
+
+
+<p>
+
+Computer Science Student @ Ashoka University
+
+<br>
+
+Currently:
+TA and Math Apprentice @ Lodha Genius
+
+</p>
+
+
+
+<div class="buttons">
+
+<a href="Neha_CV.pdf"
+target="_blank"
+class="icon-btn">
+
+<!-- keep your existing svg -->
+<span>CV</span>
+
+</a>
+
+
+<a
+href="https://github.com/neha-palak"
+target="_blank"
+class="icon-btn">
+
+<span>GitHub</span>
+
+</a>
+
+
+<a
+href="https://linkedin.com/in/neha-palak"
+target="_blank"
+class="icon-btn">
+
+<span>LinkedIn</span>
+
+</a>
+
+
+<a
+href="mailto:nehapalak2684@gmail.com"
+class="icon-btn">
+
+<span>Email</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<script>
+
+function go(link){
+
+window.location.href=link;
+
+}
+
+
+const btn=
+document.querySelector(".menu-btn");
+
+const menu=
+document.querySelector(".menu");
+
+btn.onclick=()=>{
+
+menu.classList.toggle(
+"show"
+);
+
+};
+
+</script>
+
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -69,4 +269,4 @@ Currently: TA and Math Apprentice @ Lodha Genius
 <script src="script.js"></script>
 
 </body>
-</html>
+</html> -->
